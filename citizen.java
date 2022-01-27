@@ -17,5 +17,6 @@ public class citizen {
         doses_given=0;
         total_doses=0;
         due_date = -1;
+//         commit
     }
 }
