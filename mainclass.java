@@ -228,6 +228,31 @@ public class mainclass {
             return -1;
         }
     }
+    public static void vaccination_status(String id){
+        for(citizen item:array_citizen){
+            if(item.ID_citizen.equals(id)){
+                if(item.status.equals("REGISTERED")){
+                    System.out.println("Citizen REGISTERED");
+                    return;
+                }
+                System.out.println(item.status);
+                System.out.println("Vaccine Given: "+item.vaccine);
+                System.out.println("Number of Doses give: "+item.doses_given);
+                if(item.due_date==-1){
+                    return;
+                }else{
+                    System.out.println("Next Dose due date: "+item.due_date);
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void display_portal(){
+        System.out.println("---------------------------------");
+        System.out.println("1. Add Vaccine\n2. Register Hospital\n3. Register Citizen\n4. Add Slot for Vaccination\n5. Book Slot for Vaccination\n6. List all slots for a hospital\n7. Check Vaccination Status\n8. Exit");
+        System.out.println("---------------------------------");
+    }
     public static void available_slots(String hospital_id){
         for(hospital item: array_hospital){
             if(item.ID_hospital.equals(hospital_id)){
