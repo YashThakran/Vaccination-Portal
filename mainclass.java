@@ -228,3 +228,14 @@ public class mainclass {
             return -1;
         }
     }
+    public static void available_slots(String hospital_id){
+        for(hospital item: array_hospital){
+            if(item.ID_hospital.equals(hospital_id)){
+                for(slots slot: item.array_slots){
+                    if(slot.qty>0){
+                        System.out.println("Day: "+slot.day+" Vaccine: "+slot.vacc+" Available Qty: "+slot.qty);    
+                    }
+                }
+            }
+        }
+    }
