@@ -239,3 +239,80 @@ public class mainclass {
             }
         }
     }
+    public static void main(String[] args) {
+        System.out.println("CoWin Portal initialized....");
+        Scanner sc = new Scanner(System.in);
+        boolean run = true;
+        while(run){
+            display_portal();
+            int query = sc.nextInt();
+            sc.nextLine();
+            if(query==1){
+                System.out.println("Vaccine Name: ");
+                String name = sc.nextLine();
+                System.out.println("Number of Doses: ");
+                int no_doses = sc.nextInt();
+                int gap = 0;
+                if(no_doses>1){
+                    System.out.println("Gap between Doses: ");
+                    gap = sc.nextInt();
+                }
+                add_vaccine(name, no_doses, gap);
+            }
+            else if(query == 2){
+                System.out.println("Hospital Name: ");
+                String name = sc.nextLine();
+                System.out.println("PinCode: ");
+                int pincode = sc.nextInt();
+                register_hospital(name, pincode);
+            }
+            else if(query == 3){
+                System.out.println("Citizen Name: ");
+                String name = sc.nextLine();
+                System.out.println("Age: ");
+                int age = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Unique ID: ");
+                String id = sc.nextLine();
+                register_citizen(name, age, id);
+            }
+            else if(query==4){
+                System.out.println("Enter Hospital ID: ");
+                String hospital_id = sc.nextLine();
+                System.out.println("Enter number of Slots to be added: ");
+                int no_slots = sc.nextInt();
+                for(int i=0;i<no_slots;i++){
+                    System.out.println("Enter Day Number: ");
+                    int day_no = sc.nextInt();
+                    System.out.println("Enter Quantity: ");
+                    int quant = sc.nextInt();
+                    System.out.println("Select Vaccine");
+                    for(int j=0;j<array_vaccine.size();j++){
+                        System.out.println(j+" "+array_vaccine.get(j).name);    
+                    }
+                    int index_vaccine = sc.nextInt();
+                    create_slots(hospital_id, quant, array_vaccine.get(index_vaccine).name, day_no);
+                }
+            }
+            else if(query == 5){
+                int x = book_slot();
+                if(x==-1){
+                    break;
+                }
+            }
+            else if(query==6){
+                System.out.println("Enter Hospital Id" );
+                String hos_id = sc.nextLine();
+                available_slots(hos_id);
+            }
+            else if(query==7){
+                System.out.println("Enter patiend ID: ");
+                String patient_id = sc.nextLine();
+                vaccination_status(patient_id);
+            }else{
+                run = false;
+                break;
+            }
+        }
+    }
+}
