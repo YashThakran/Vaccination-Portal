@@ -1,2 +1,2 @@
-# Vaccination-Portal-System
-Vaccination booking system ( Command line implementation)
+# Vaccination Portal System
+Command line implementation of Vaccination booking system
